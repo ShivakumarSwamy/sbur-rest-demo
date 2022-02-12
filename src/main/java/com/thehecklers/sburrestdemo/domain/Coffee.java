@@ -2,29 +2,30 @@ package com.thehecklers.sburrestdemo.domain;
 
 import java.util.UUID;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Entity
 public class Coffee {
 
-    private final String id;
+    @Id
+    @Column(nullable = false)
+    private String id;
     private String name;
+
 
     public Coffee(String name) {
         this(UUID.randomUUID().toString(), name);
     }
 
-    public Coffee(String id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }
